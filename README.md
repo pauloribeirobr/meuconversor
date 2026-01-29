@@ -1,59 +1,96 @@
-# Meuconversor
+# Meu Conversor
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.1.
+## Descrição
 
-## Development server
+Meu Conversor é um aplicativo web desenvolvido em Angular para conversão de unidades de medida. Este projeto serve como portfólio para demonstrar habilidades em desenvolvimento front-end com Angular, incluindo o uso de componentes standalone, serviços e integração com APIs externas.
 
-To start a local development server, run:
+O aplicativo permite conversões em tempo real entre diferentes unidades de:
+- **Moedas**: Conversão entre diversas moedas usando taxas de câmbio atualizadas.
+- **Comprimento**: Metros, quilômetros, pés, polegadas, etc.
+- **Temperatura**: Celsius, Fahrenheit, Kelvin.
+- **Volume**: Litros, mililitros, galões, etc.
+- **Peso**: Quilogramas, gramas, libras, onças, etc.
 
+Acesse o projeto em produção: [https://meuconversor.com.br](https://meuconversor.com.br)
+
+## Tecnologias Utilizadas
+
+- **Angular**: Framework principal para desenvolvimento da aplicação.
+- **Tailwind CSS**: Para estilização responsiva e moderna.
+- **TypeScript**: Linguagem de programação.
+- **RxJS**: Para gerenciamento de estado reativo.
+- **Vitest**: Para testes unitários.
+
+## Como Rodar o Projeto
+
+### Pré-requisitos
+
+- Node.js (versão 18 ou superior)
+- npm ou yarn
+
+### Instalação
+
+1. Clone o repositório:
+   ```bash
+   git clone <url-do-repositorio>
+   cd meuconversor
+   ```
+
+2. Instale as dependências:
+   ```bash
+   npm install
+   ```
+
+### Executando em Desenvolvimento
+
+Para iniciar o servidor de desenvolvimento:
+```bash
+npm start
+```
+
+Ou usando Angular CLI:
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+A aplicação estará disponível em `http://localhost:4200/`. O servidor suporta hot reload, então as mudanças serão refletidas automaticamente no navegador.
 
-## Code scaffolding
+### Build para Produção
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
+Para gerar os arquivos de produção:
 ```bash
 ng build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Os arquivos serão gerados na pasta `dist/`.
 
-## Running unit tests
+### Testes
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
+Para executar os testes unitários:
 ```bash
-ng test
+npm test
 ```
 
-## Running end-to-end tests
+## Principais Funcionalidades
 
-For end-to-end (e2e) testing, run:
+- **Interface Responsiva**: Design adaptável para desktop e mobile.
+- **Conversões em Tempo Real**: Atualização instantânea dos resultados.
+- **Histórico de Conversões**: Armazenamento local das conversões realizadas.
+- **Troca Rápida de Unidades**: Botão para inverter unidades de origem e destino.
+- **Validação de Entrada**: Verificação de valores numéricos válidos.
+- **Integração com API de Moedas**: Taxas de câmbio atualizadas via serviço externo.
 
-```bash
-ng e2e
-```
+## Estrutura do Projeto
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+- `src/app/core/`: Serviços e modelos de dados.
+- `src/app/features/`: Componentes específicos para cada tipo de conversão.
+- `src/app/shared/`: Componentes reutilizáveis.
+- `src/app/layout/`: Layout da aplicação (header, footer).
 
-## Additional Resources
+## Contribuição
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Este é um projeto de portfólio. Para sugestões ou melhorias, entre em contato.
+
+## Licença
+
+Este projeto é de uso pessoal e educacional.
