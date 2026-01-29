@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Unit, UnitCategory } from '../models';
+import { LENGTH_UNITS } from '../data/length-units';
+import { WEIGHT_UNITS } from '../data/weight-units';
+import { VOLUME_UNITS } from '../data/volume-units';
+import { TEMPERATURE_UNITS } from '../data/temperature-units';
 
 @Injectable({
   providedIn: 'root'
@@ -8,31 +12,10 @@ export class UnitService {
   private units: Map<UnitCategory, Unit[]> = new Map();
 
   constructor() {
-    this.loadUnits();
-  }
-
-  private async loadUnits(): Promise<void> {
-    try {
-      // Carregar cada categoria
-      const lengthResponse = await fetch('/assets/data/length-units.json');
-      const lengthUnits: Unit[] = await lengthResponse.json();
-      this.units.set('length', lengthUnits);
-
-      const weightResponse = await fetch('/assets/data/weight-units.json');
-      const weightUnits: Unit[] = await weightResponse.json();
-      this.units.set('weight', weightUnits);
-
-      const volumeResponse = await fetch('/assets/data/volume-units.json');
-      const volumeUnits: Unit[] = await volumeResponse.json();
-      this.units.set('volume', volumeUnits);
-
-      const tempResponse = await fetch('/assets/data/temperature-units.json');
-      const tempUnits: Unit[] = await tempResponse.json();
-      this.units.set('temperature', tempUnits);
-
-    } catch (error) {
-      console.error('Erro ao carregar unidades:', error);
-    }
+    this.units.set('length', LENGTH_UNITS);
+    this.units.set('weight', WEIGHT_UNITS);
+    this.units.set('volume', VOLUME_UNITS);
+    this.units.set('temperature', TEMPERATURE_UNITS);
   }
 
   // Retorna unidades de uma categoria

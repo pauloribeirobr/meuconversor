@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { map, tap, catchError } from 'rxjs/operators';
 import { Currency, ExchangeRateResponse } from '../models';
+import { CURRENCIES } from '../data/currencies';
 
 @Injectable({
   providedIn: 'root'
@@ -18,20 +19,8 @@ export class CurrencyService {
   private loading$ = new BehaviorSubject<boolean>(false);
 
   constructor(private http: HttpClient) {
-    this.loadCurrencies();
+    this.currencies = CURRENCIES;
     this.loadCachedRates();
-  }
-
-  // Carrega lista de moedas do arquivo JSON
-  private loadCurrencies(): void {
-    this.http.get<Currency[]>('/assets/data/currencies.json').subscribe({
-      next: (data) => {
-        this.currencies = data;
-      },
-      error: (error) => {
-        console.error('Erro ao carregar moedas:', error);
-      }
-    });
   }
 
   // Retorna todas as moedas

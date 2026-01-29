@@ -1,4 +1,6 @@
-[
+import { Unit } from '../models';
+
+export const LENGTH_UNITS: Unit[] = [
   { "id": "millimeter", "name": "Milímetro", "symbol": "mm", "category": "length", "toBase": 0.001 },
   { "id": "centimeter", "name": "Centímetro", "symbol": "cm", "category": "length", "toBase": 0.01 },
   { "id": "meter", "name": "Metro", "symbol": "m", "category": "length", "toBase": 1 },
@@ -7,4 +9,4 @@
   { "id": "foot", "name": "Pé", "symbol": "ft", "category": "length", "toBase": 0.3048 },
   { "id": "yard", "name": "Jarda", "symbol": "yd", "category": "length", "toBase": 0.9144 },
   { "id": "mile", "name": "Milha", "symbol": "mi", "category": "length", "toBase": 1609.344 }
-]
+];
