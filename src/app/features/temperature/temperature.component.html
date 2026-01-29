@@ -1,0 +1,64 @@
+<div class="max-w-2xl mx-auto px-4 py-8">
+  <div class="text-center mb-8">
+    <h1 class="text-3xl font-bold text-gray-900 mb-2">
+      🌡️ Conversor de Temperatura
+    </h1>
+    <p class="text-gray-600">
+      Converta entre Celsius, Fahrenheit e Kelvin
+    </p>
+  </div>
+
+  <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 mb-6">
+    <div class="mb-4">
+      <label class="block text-sm font-medium text-gray-700 mb-2">De</label>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <app-unit-selector
+          [options]="unitOptions"
+          [selected]="fromUnit"
+          [searchable]="false"
+          (selectedChange)="onFromUnitChange($event)"
+        />
+        <app-value-input
+          [value]="inputValue"
+          [prefix]="fromUnitData?.symbol || ''"
+          placeholder="Digite a temperatura"
+          (valueChange)="onValueChange($event)"
+        />
+      </div>
+    </div>
+
+    <div class="flex justify-center my-4">
+      <app-swap-button (swap)="swap()" />
+    </div>
+
+    <div>
+      <label class="block text-sm font-medium text-gray-700 mb-2">Para</label>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <app-unit-selector
+          [options]="unitOptions"
+          [selected]="toUnit"
+          [searchable]="false"
+          (selectedChange)="onToUnitChange($event)"
+        />
+        <app-result-display
+          [value]="outputValue"
+          [symbol]="toUnitData?.symbol || ''"
+          [unitName]="toUnitData?.name || ''"
+        />
+      </div>
+    </div>
+  </div>
+
+  <!-- Fórmulas -->
+  <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+    <h2 class="text-lg font-semibold text-gray-900 mb-4">
+      Fórmulas de Conversão
+    </h2>
+    <div class="space-y-3 text-sm text-gray-600">
+      <p><strong>Celsius → Fahrenheit:</strong> °F = (°C × 9/5) + 32</p>
+      <p><strong>Fahrenheit → Celsius:</strong> °C = (°F - 32) × 5/9</p>
+      <p><strong>Celsius → Kelvin:</strong> K = °C + 273.15</p>
+      <p><strong>Kelvin → Celsius:</strong> °C = K - 273.15</p>
+    </div>
+  </div>
+</div>

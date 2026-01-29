@@ -1,0 +1,100 @@
+<!-- Hero Section -->
+<section class="bg-gradient-to-br from-primary-600 to-primary-800 text-white py-16 md:py-24">
+  <div class="max-w-4xl mx-auto px-4 text-center">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4">
+      Converta qualquer coisa.
+      <span class="text-primary-200">Instantaneamente.</span>
+    </h1>
+    <p class="text-xl text-primary-100 mb-8">
+      Moedas, medidas, temperaturas e muito mais. Grátis, sem cadastro.
+    </p>
+    
+    <!-- Search/Quick Access -->
+    <div class="max-w-xl mx-auto">
+      <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-2">
+        <input 
+          type="text"
+          placeholder="Ex: 100 dólares em reais, 5 km em milhas..."
+          class="w-full px-6 py-4 bg-white rounded-xl text-gray-900 
+                 placeholder-gray-500 focus:outline-none focus:ring-4 
+                 focus:ring-primary-300 text-lg"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Conversores -->
+<section class="py-16 bg-gray-50">
+  <div class="max-w-6xl mx-auto px-4">
+    <h2 class="text-2xl font-bold text-gray-900 text-center mb-12">
+      Escolha um conversor
+    </h2>
+    
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <a 
+        *ngFor="let converter of converters"
+        [routerLink]="converter.route"
+        class="group bg-white rounded-2xl p-6 shadow-sm hover:shadow-lg 
+               transition-all duration-300 border border-gray-100
+               hover:border-primary-200 hover:-translate-y-1"
+      >
+        <!-- Ícone -->
+        <div class="w-14 h-14 rounded-xl bg-gradient-to-br flex items-center 
+                    justify-center text-3xl mb-4 group-hover:scale-110 transition-transform"
+             [class]="converter.color">
+          {{ converter.icon }}
+        </div>
+        
+        <!-- Título -->
+        <h3 class="text-xl font-semibold text-gray-900 mb-2 
+                   group-hover:text-primary-600 transition-colors">
+          {{ converter.title }}
+        </h3>
+        
+        <!-- Descrição -->
+        <p class="text-gray-600 text-sm">
+          {{ converter.description }}
+        </p>
+        
+        <!-- Seta -->
+        <div class="mt-4 text-primary-600 opacity-0 group-hover:opacity-100 
+                    transition-opacity flex items-center gap-1 text-sm font-medium">
+          Converter agora
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+<section class="py-16">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+      <div>
+        <div class="text-4xl mb-4">⚡</div>
+        <h3 class="text-lg font-semibold text-gray-900 mb-2">Instantâneo</h3>
+        <p class="text-gray-600 text-sm">
+          Resultado aparece enquanto você digita. Sem espera.
+        </p>
+      </div>
+      <div>
+        <div class="text-4xl mb-4">🔒</div>
+        <h3 class="text-lg font-semibold text-gray-900 mb-2">Sem cadastro</h3>
+        <p class="text-gray-600 text-sm">
+          Use à vontade sem criar conta ou fornecer dados.
+        </p>
+      </div>
+      <div>
+        <div class="text-4xl mb-4">📱</div>
+        <h3 class="text-lg font-semibold text-gray-900 mb-2">Funciona em tudo</h3>
+        <p class="text-gray-600 text-sm">
+          Celular, tablet ou computador. Sempre disponível.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

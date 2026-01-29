@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <!-- Gradiente principal azul -->
+    <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3B82F6"></stop>
+      <stop offset="100%" style="stop-color:#1D4ED8"></stop>
+    </linearGradient>
+    
+    <!-- Sombra suave -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#1E40AF" flood-opacity="0.3"></feDropShadow>
+    </filter>
+  </defs>
+  
+  <!-- Círculo de fundo -->
+  <circle cx="256" cy="256" r="240" fill="url(#blueGradient)" filter="url(#shadow)"></circle>
+  
+  <!-- Setas de conversão (estilo clean) -->
+  <g stroke="white" stroke-width="32" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <!-- Seta superior (indo para direita) -->
+    <path d="M140 190 L372 190"></path>
+    <path d="M320 140 L372 190 L320 240"></path>
+    
+    <!-- Seta inferior (indo para esquerda) -->
+    <path d="M372 322 L140 322"></path>
+    <path d="M192 272 L140 322 L192 372"></path>
+  </g>
+</svg></svg><style>@media (prefers-color-scheme: light) { :root { filter: none; } }
+@media (prefers-color-scheme: dark) { :root { filter: none; } }
+</style></svg>

@@ -1,0 +1,74 @@
+<header class="bg-white border-b border-gray-200 sticky top-0 z-40">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="flex items-center justify-between h-16">
+
+      <!-- Logo -->
+      <a routerLink="/" class="flex items-center gap-2 hover:opacity-90 transition-opacity">
+        <app-logo size="md"></app-logo>
+        <span class="text-xl font-bold text-primary-600">MeuConversor</span>
+      </a>
+
+      <!-- Menu Desktop -->
+      <nav class="hidden md:flex items-center gap-6">
+        <a routerLink="/moedas" routerLinkActive="text-primary-600"
+          class="text-gray-600 hover:text-primary-600 font-medium transition-colors">
+          💱 Moedas
+        </a>
+        <a routerLink="/comprimento" routerLinkActive="text-primary-600"
+          class="text-gray-600 hover:text-primary-600 font-medium transition-colors">
+          📏 Comprimento
+        </a>
+        <a routerLink="/peso" routerLinkActive="text-primary-600"
+          class="text-gray-600 hover:text-primary-600 font-medium transition-colors">
+          ⚖️ Peso
+        </a>
+        <a routerLink="/temperatura" routerLinkActive="text-primary-600"
+          class="text-gray-600 hover:text-primary-600 font-medium transition-colors">
+          🌡️ Temperatura
+        </a>
+        <a routerLink="/volume" routerLinkActive="text-primary-600"
+          class="text-gray-600 hover:text-primary-600 font-medium transition-colors">
+          🥄 Volume
+        </a>
+      </nav>
+
+      <!-- Botão Menu Mobile -->
+      <button (click)="toggleMenu()" class="md:hidden p-2 text-gray-600 hover:text-primary-600" aria-label="Menu">
+        <svg *ngIf="!isMenuOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg *ngIf="isMenuOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Menu Mobile -->
+    <nav *ngIf="isMenuOpen" class="md:hidden py-4 border-t border-gray-100">
+      <div class="flex flex-col gap-2">
+        <a routerLink="/moedas" (click)="closeMenu()"
+          class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-gray-50">
+          <span>💱</span> Moedas
+        </a>
+        <a routerLink="/comprimento" (click)="closeMenu()"
+          class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-gray-50">
+          <span>📏</span> Comprimento
+        </a>
+        <a routerLink="/peso" (click)="closeMenu()"
+          class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-gray-50">
+          <span>⚖️</span> Peso
+        </a>
+        <a routerLink="/temperatura" (click)="closeMenu()"
+          class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-gray-50">
+          <span>🌡️</span> Temperatura
+        </a>
+        <a routerLink="/volume" (click)="closeMenu()"
+          class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-gray-50">
+          <span>🥄</span> Volume
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>

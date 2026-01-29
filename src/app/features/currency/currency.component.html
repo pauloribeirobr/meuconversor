@@ -1,0 +1,87 @@
+<div class="max-w-2xl mx-auto px-4 py-8">
+  <!-- Título -->
+  <div class="text-center mb-8">
+    <h1 class="text-3xl font-bold text-gray-900 mb-2">
+      💱 Conversor de Moedas
+    </h1>
+    <p class="text-gray-600">
+      Cotações atualizadas diariamente para 50 moedas
+    </p>
+  </div>
+
+  <!-- Card do Conversor -->
+  <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 mb-6">
+    
+    <!-- De (From) -->
+    <div class="mb-4">
+      <label class="block text-sm font-medium text-gray-700 mb-2">De</label>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <app-unit-selector
+          [options]="currencyOptions"
+          [selected]="fromCurrency"
+          (selectedChange)="onFromCurrencyChange($event)"
+        />
+        <app-value-input
+          [value]="inputValue"
+          [prefix]="fromCurrencyData?.symbol || ''"
+          placeholder="Digite o valor"
+          (valueChange)="onValueChange($event)"
+        />
+      </div>
+    </div>
+
+    <!-- Botão de Inverter -->
+    <div class="flex justify-center my-4">
+      <app-swap-button (swap)="swap()" />
+    </div>
+
+    <!-- Para (To) -->
+    <div class="mb-6">
+      <label class="block text-sm font-medium text-gray-700 mb-2">Para</label>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <app-unit-selector
+          [options]="currencyOptions"
+          [selected]="toCurrency"
+          (selectedChange)="onToCurrencyChange($event)"
+        />
+        <app-result-display
+          [value]="outputValue"
+          [symbol]="toCurrencyData?.symbol || ''"
+          [unitName]="toCurrencyData?.name || ''"
+          [loading]="loading"
+        />
+      </div>
+    </div>
+
+    <!-- Info da cotação -->
+    <div class="text-center text-sm text-gray-500 border-t border-gray-100 pt-4">
+      <p *ngIf="currentRate">{{ formatRate() }}</p>
+      <p class="mt-1">{{ formatLastUpdate() }}</p>
+    </div>
+  </div>
+
+  <!-- Conversões Populares -->
+  <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+    <h2 class="text-lg font-semibold text-gray-900 mb-4">
+      Conversões Populares
+    </h2>
+    <div class="grid grid-cols-2 gap-4 text-sm">
+      <a routerLink="/moedas/dolar-para-real" 
+         class="p-3 rounded-lg bg-gray-50 hover:bg-primary-50 transition-colors">
+        🇺🇸 Dólar → 🇧🇷 Real
+      </a>
+      <a routerLink="/moedas/euro-para-real"
+         class="p-3 rounded-lg bg-gray-50 hover:bg-primary-50 transition-colors">
+        🇪🇺 Euro → 🇧🇷 Real
+      </a>
+      <a routerLink="/moedas/libra-para-real"
+         class="p-3 rounded-lg bg-gray-50 hover:bg-primary-50 transition-colors">
+        🇬🇧 Libra → 🇧🇷 Real
+      </a>
+      <a routerLink="/moedas/peso-para-real"
+         class="p-3 rounded-lg bg-gray-50 hover:bg-primary-50 transition-colors">
+        🇦🇷 Peso → 🇧🇷 Real
+      </a>
+    </div>
+  </div>
+</div>

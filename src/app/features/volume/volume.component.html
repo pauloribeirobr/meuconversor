@@ -1,0 +1,62 @@
+<div class="max-w-2xl mx-auto px-4 py-8">
+  <div class="text-center mb-8">
+    <h1 class="text-3xl font-bold text-gray-900 mb-2">
+      🥄 Conversor de Volume
+    </h1>
+    <p class="text-gray-600">
+      Converta entre litros, xícaras, colheres e ml
+    </p>
+  </div>
+
+  <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 mb-6">
+    <div class="mb-4">
+      <label class="block text-sm font-medium text-gray-700 mb-2">De</label>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <app-unit-selector
+          [options]="unitOptions"
+          [selected]="fromUnit"
+          [searchable]="false"
+          (selectedChange)="onFromUnitChange($event)"
+        />
+        <app-value-input
+          [value]="inputValue"
+          [prefix]="fromUnitData?.symbol || ''"
+          placeholder="Digite o volume"
+          (valueChange)="onValueChange($event)"
+        />
+      </div>
+    </div>
+
+    <div class="flex justify-center my-4">
+      <app-swap-button (swap)="swap()" />
+    </div>
+
+    <div>
+      <label class="block text-sm font-medium text-gray-700 mb-2">Para</label>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <app-unit-selector
+          [options]="unitOptions"
+          [selected]="toUnit"
+          [searchable]="false"
+          (selectedChange)="onToUnitChange($event)"
+        />
+        <app-result-display
+          [value]="outputValue"
+          [symbol]="toUnitData?.symbol || ''"
+          [unitName]="toUnitData?.name || ''"
+        />
+      </div>
+    </div>
+  </div>
+
+  <!-- Dica de Cozinha -->
+  <div class="bg-amber-50 rounded-2xl border border-amber-200 p-6">
+    <h2 class="text-lg font-semibold text-amber-900 mb-3">
+      💡 Dica para Receitas
+    </h2>
+    <p class="text-amber-800 text-sm">
+      No Brasil, a xícara padrão de cozinha tem 240ml. 
+      Já a colher de sopa tem 15ml e a colher de chá, 5ml.
+    </p>
+  </div>
+</div>
